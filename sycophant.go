@@ -6,11 +6,7 @@ import (
 	"os"
 )
 
-var apiConfig *TwitterAPIConfig
-
 func main() {
-	apiConfig = readconfig()
-	fmt.Println(apiConfig.Key)
 	http.HandleFunc("/", leaderserve)
 	fmt.Println("Up.")
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
